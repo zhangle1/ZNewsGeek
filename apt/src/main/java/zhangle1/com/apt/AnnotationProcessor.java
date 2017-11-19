@@ -9,6 +9,7 @@ import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
@@ -25,10 +26,13 @@ import zhangle1.com.apt.processor.RouterProcessor;
 
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedAnnotationTypes({
+        "zhangle1.com.annotation.apt.Router"
+})
 public class AnnotationProcessor extends AbstractProcessor {
 
 
-    private Filer mFiler;
+    public Filer mFiler;
     private Elements mElementUtils;
     private Messager mMessager;
 
